@@ -3,6 +3,7 @@ import { a, b } from './components/Products/Products';
 import Products from './components/Products/Products';
 import { useState } from 'react';
 import CartContext from './context/CartContext';
+import CartItems from './components/cartItems/cartItems';
 function App() {
   // state variable
   // inc
@@ -13,6 +14,7 @@ function App() {
     // if(cart[product.id])
     if (!newCart[product.id]) {
       newCart[product.id] = {
+        // name: product.name,
         ...product,
         quantity: 0
       };
@@ -37,6 +39,7 @@ function App() {
     <CartContext.Provider value={{ cart, increaseQuantity, decreaseQuantity}}>
       <div className="App">
         <Products  />
+        <CartItems /> {/* Add this line to include the CartItems component */}
       </div>
     </CartContext.Provider>
   );
